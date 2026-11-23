@@ -1,0 +1,16 @@
+{
+  "challenge_module": "Challenge",
+  "solution_module": "Solution",
+  "theorem_names": [
+    "SpspPsi20Challenge.main_two_witnesses",
+    "SpspPsi20Challenge.psi_20_le_n₁",
+    "SpspPsi20Challenge.k2_fermat_and_sprp_criteria",
+    "SpspPsi20Challenge.k2_strongLiar_share_and_base2_cap",
+    "SpspPsi20Challenge.sieve_admissible_and_wheel",
+    "SpspPsi20Challenge.k2_jacobsthal_and_cells",
+    "SpspPsi20Challenge.k_gen_legendre_of_ratio",
+    "SpspPsi20Challenge.nth_prime_20"
+  ],
+  "definition_names": [],
+  "permitted_axioms": ["propext", "Quot.sound", "Classical.choice"]
+}

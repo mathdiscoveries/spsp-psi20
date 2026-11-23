@@ -1,0 +1,179 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "Two 37-Digit 20-Base Strong Pseudoprimes (psi_20 <= n1 < 2^121), Order Criteria, and Exact Sieve Laws"
+  description: >-
+    Unconditional Lean 4 + Mathlib formalization (zero sorry, zero
+    native_decide, standard axioms only) establishing two explicit 37-digit
+    Zhang K2 strong pseudoprimes n1 = 2481162833436289154832260656117034821
+    (121 bits) and n2 = 5959902256870799858089729225626992341 (123 bits) to the
+    first 20 prime bases (2 through 71, defined via Mathlib's Nat.nth
+    Nat.Prime), giving the upper bound psi_20 <= n1 < 2^121 (OEIS A014233).
+    All four prime factors are certified inside the Lean kernel via Pratt
+    certificates backed by Mathlib's lucas_primality, and both witnesses are
+    proved to fail the strong test at the 21st prime 73 while passing Fermat at
+    73. The library also formalizes the complete algebraic theory of K2 and
+    K_{a/b} strong pseudoprimes: Fermat and 2-adic order/level criteria, exact
+    strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16, exact sieve
+    admissible count A(b) and 10,135,125-class first wheel mod 401,120,980,260,
+    and the Jacobsthal character sum -(2/b) with exact b mod 8 cell counts.
+    Companion manuscript and verification archive:
+    https://mathdiscoveries.org/results/spsp-psi20.
+  authors:
+    - "Tyler B. Hughes"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Tyler B. Hughes"
+
+classification:
+  arxiv: ["math.NT"]
+  msc2020: ["11Y11", "11A51", "11N36"]
+
+sources:
+  - title: "Every prime has a succinct certificate"
+    authors:
+      - "Vaughan R. Pratt"
+    id: "https://doi.org/10.1137/0204018"
+    type: paper
+    location: "SIAM J. Comput. 4 (1975), no. 3, 214-220"
+    relationship: formalizes
+    note: "Recursive primality certification via predecessor factorization and primitive-root witnesses used to certify p1, q1, p2, q2 in Lean."
+  - title: "On strong pseudoprimes to several bases"
+    authors:
+      - "Gerhard Jaeschke"
+    id: "https://doi.org/10.1090/S0025-5718-1993-1192971-8"
+    type: paper
+    location: "Math. Comp. 61 (1993), no. 204, 915-926"
+    relationship: formalizes
+    note: "2-adic multiplicative-order signature criterion, K2 Fermat criterion, and base-2 restriction."
+  - title: "Efficiency and security of cryptosystems based on number theory"
+    authors:
+      - "Daniel Bleichenbacher"
+    id: "https://doi.org/10.3929/ethz-a-001627804"
+    type: thesis
+    location: "Ph.D. thesis, Diss. ETH No. 11404, ETH Zurich, 1996, Table 3.2"
+    relationship: background
+    note: "Earlier 41-digit (135-bit) composite passing the first 21 prime bases."
+  - title: "Two kinds of strong pseudoprimes up to 10^36"
+    authors:
+      - "Zhenxiang Zhang"
+    id: "https://doi.org/10.1090/S0025-5718-07-01977-1"
+    type: paper
+    location: "Math. Comp. 76 (2007), no. 260, 2095-2107"
+    relationship: background
+    note: "Studies K2 strong pseudoprimes up to 10^36, strong-liar shares, and Conjecture 3 (minimality psi_t = psi'_t for t >= 12, which remains open)."
+  - title: "Strong pseudoprimes to twelve prime bases"
+    authors:
+      - "Jonathan P. Sorenson"
+      - "Jonathan Webster"
+    id: "https://doi.org/10.1090/mcom/3134"
+    type: paper
+    location: "Math. Comp. 86 (2017), no. 304, 985-1003"
+    relationship: background
+    note: "Establishes psi_12 > 2^64, certifying deterministic primality in the external sieve."
+
+status:
+  scope: >-
+    Unconditionally proved inside Lean 4 + Mathlib with standard axioms only
+    (100 verified declarations in SpspPsi20, zero sorry, zero native_decide):
+    6 of 8 main claims in the companion manuscript (100% of all theoretical
+    theorems and the full headline witness/bound theorem), namely Theorem 1
+    (both 37-digit K2 witnesses n1 and n2, all 4 Pratt primality proofs, all 20
+    prime-base strong tests via Nat.nth Nat.Prime, failure at base 73, Fermat
+    pass at base 73, and psi_20 <= n1 < 2^121), Theorem 2 (K2 Fermat and 2-adic
+    order/level criteria), Proposition 3 (strong-liar share (1 + 2*4^(-e))/6
+    and base-2 cap <= 3/16), Proposition 4 (exact sieve count A(b) and
+    10,135,125-class wheel mod 401,120,980,260), Theorem 5 (Jacobsthal sum
+    -(2/b) and exact b mod 8 cell counts), and Proposition 6 (general K_{a/b}
+    2-adic Legendre obstruction). The remaining 2 claims in the manuscript
+    (Propositions 7 and 8: exhaustive external GMP C sieve over 1.53e18
+    integers in (10^36, 10^37] and a 7-ratio C sweep over 1.49e10 candidates)
+    are external computations not formalized in Lean, and Zhang's minimality
+    conjecture (psi_20 = n1) remains open.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Quot.sound", "Classical.choice"]
+
+automation:
+  methods:
+    - method: agent
+      models: []
+      framework: "AI research agents built and directed by Tyler B. Hughes"
+      tool_setup: >-
+        AI research agents built and directed by Tyler B. Hughes discovered the
+        two 37-digit witnesses, derived the exact sieve/Jacobsthal identities,
+        and built and checked the Lean 4 formalization.
+      cost:
+        wall_time: "not tracked"
+        spend_usd: "not tracked"
+        hardware: "local machine"
+      prompting_notes: "Goal-directed mathematical discovery and Lean 4 formalization."
+  spend_usd: "not tracked"
+  notes: >-
+    Generated and checked by AI research agents built and directed by Tyler B.
+    Hughes. No human mathematician has yet refereed the proof.
+
+fidelity:
+  divergences: >-
+    The companion manuscript (Draft 4) contains 8 main claims plus 1 open
+    conjecture (Zhang minimality psi_t = psi'_t for t >= 12). This Lean 4
+    package proves 6 of those 8 claims (all theoretical theorems and the full
+    headline upper bound psi_20 <= n1 < 2^121). Propositions 7 and 8 of the
+    manuscript report negative exhaustive C-sieve searches over 1.53e18
+    integers in (10^36, 10^37] and 1.49e10 companion-ratio candidates; those
+    two external searches are not formalized in Lean and are omitted from
+    Challenge.lean.
+
+review:
+  status: agent-reviewed
+  reviewers:
+    - "AI review agents directed by Tyler B. Hughes"
+  notes: >-
+    Audited by AI review agents and verified for standard axioms only via
+    SpspPsi20/Verify.lean and 6-kernel comparator replay. No human
+    mathematician has yet refereed the proof.
+
+alignment:
+  namespace: "SpspPsi20Challenge"
+  statements:
+    - source: "Theorem 1: Two 37-digit K2 20-base strong pseudoprimes n1 (121b) and n2 (123b), base-73 failure + Fermat pass, and psi_20 <= n1 < 2^121"
+      lean: "SpspPsi20Challenge.main_two_witnesses"
+      module: "Challenge"
+      status: proved
+      note: "Unconditional pure-kernel proof with all 4 Pratt primality certificates and all 20 prime bases via Nat.nth Nat.Prime."
+    - source: "Headline upper bound psi_20 <= 2481162833436289154832260656117034821"
+      lean: "SpspPsi20Challenge.psi_20_le_n₁"
+      module: "Challenge"
+      status: proved
+      note: "Direct standalone statement of the OEIS A014233 upper bound."
+    - source: "Theorem 2: K2 Fermat Legendre criterion and Miller-Rabin 2-adic order/level criteria"
+      lean: "SpspPsi20Challenge.k2_fermat_and_sprp_criteria"
+      module: "Challenge"
+      status: proved
+      note: "Exact equivalences for every odd prime p with n = p(2p - 1) in K2 and gcd(b, n) = 1."
+    - source: "Proposition 3: Exact K2 strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16"
+      lean: "SpspPsi20Challenge.k2_strongLiar_share_and_base2_cap"
+      module: "Challenge"
+      status: proved
+      note: "Includes p = 3 mod 4 base-2 exclusion and exact 3/16 equality at e = 2."
+    - source: "Proposition 4: Exact odd-prime sieve admissible count A(b) and 10,135,125-class first wheel mod 401,120,980,260"
+      lean: "SpspPsi20Challenge.sieve_admissible_and_wheel"
+      module: "Challenge"
+      status: proved
+      note: "Proved over ZMod b for every odd prime b plus exact 10-prime wheel arithmetic."
+    - source: "Theorem 5: Exact Jacobsthal sum -(2/b) and exact b mod 8 wheel cell counts 4 N_{-+} and 4 N_{++}"
+      lean: "SpspPsi20Challenge.k2_jacobsthal_and_cells"
+      module: "Challenge"
+      status: proved
+      note: "Exact quadratic character sum and cell identities for every odd prime b."
+    - source: "Proposition 6: General K_{a/b} 2-adic Legendre obstruction"
+      lean: "SpspPsi20Challenge.k_gen_legendre_of_ratio"
+      module: "Challenge"
+      status: proved
+      note: "Direct ratio form b(q - 1) = a(p - 1) for odd primes p, q with gcd(a, b) = 1."
+    - source: "Sanity witness: 21st prime (0-indexed 20) equals 73"
+      lean: "SpspPsi20Challenge.nth_prime_20"
+      module: "Challenge"
+      status: proved
+      note: "Confirms 0-indexed Nat.nth Nat.Prime convention covers 2..71 for k = 20 and fails at 73."
