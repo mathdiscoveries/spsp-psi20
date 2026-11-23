@@ -13,11 +13,15 @@ project:
     All four prime factors are certified inside the Lean kernel via Pratt
     certificates backed by Mathlib's lucas_primality, and both witnesses are
     proved to fail the strong test at the 21st prime 73 while passing Fermat at
-    73. The library also formalizes the complete algebraic theory of K2 and
-    K_{a/b} strong pseudoprimes: Fermat and 2-adic order/level criteria, exact
-    strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16, exact sieve
-    admissible count A(b) and 10,135,125-class first wheel mod 401,120,980,260,
-    and the Jacobsthal character sum -(2/b) with exact b mod 8 cell counts.
+    73. The K2 Fermat and 2-adic order criteria formalize specializations
+    of Gerhard Jaeschke's 1993 results. The companion manuscript also presents
+    the exact strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16,
+    the exact sieve count A(b) and 10,135,125-class wheel mod 401,120,980,260,
+    the Jacobsthal character sum -(2/b) with exact b mod 8 cell counts, and
+    the K_{a/b} Legendre obstruction. Lean covers 6 of the manuscript's 8
+    main claims. The other 2 are external sieve computations.
+    AI research agents built and directed by Tyler B. Hughes generated and
+    checked the work. No human mathematician has yet refereed the proof.
     Companion manuscript and verification archive:
     https://mathdiscoveries.org/results/spsp-psi20.
   authors:
@@ -35,22 +39,22 @@ sources:
     authors:
       - "Tyler B. Hughes"
     id: "https://mathdiscoveries.org/results/spsp-psi20"
-    type: original-proof
+    type: paper
     location: "Companion manuscript, verification archive, and prior-work search log at https://mathdiscoveries.org/results/spsp-psi20"
     relationship: other
     author_endorsement: participated
     note: >-
-      Original discovery, companion manuscript, and Lean 4 formalization
-      produced by AI research agents built and directed by Tyler B. Hughes.
-      Originates the headline 37-digit 20-base K2 strong pseudoprimes n1
+      Companion manuscript by Tyler B. Hughes for the results presented
+      in this project and produced by AI research agents he built and
+      directed. These are the 37-digit 20-base K2 strong pseudoprimes n1
       (121-bit) and n2 (123-bit) establishing psi_20 <= n1 < 2^121 (Theorem 1),
       the exact K2 strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16
       (Proposition 3), the exact odd-prime sieve admissible count A(b) and
       10,135,125-class first wheel mod 401,120,980,260 (Proposition 4), the
       Jacobsthal character sum -(2/b) and exact b mod 8 cell counts
       (Theorem 5), and the general K_{a/b} 2-adic Legendre obstruction
-      (Proposition 6), distinct from earlier criteria by Pratt (1975) and
-      Jaeschke (1993) formalized alongside them.
+      (Proposition 6). The base-2 cap and the general-ratio obstruction
+      use the earlier criteria credited to Jaeschke below.
   - title: "Every prime has a succinct certificate"
     authors:
       - "Vaughan R. Pratt"
@@ -64,14 +68,21 @@ sources:
       - "Gerhard Jaeschke"
     id: "https://doi.org/10.1090/S0025-5718-1993-1192971-8"
     type: paper
-    location: "Math. Comp. 61 (1993), no. 204, 915-926"
-    relationship: background
-    note: "2-adic multiplicative-order signature criterion, K2 Fermat criterion, and base-2 restriction."
+    location: "Math. Comp. 61 (1993), no. 204, 915-926, Propositions 1 and 4 and the remark on p. 919"
+    relationship: formalizes
+    note: >-
+      The single-base, two-prime forward direction of Proposition 1 is
+      formalized in SpspPsi20.semiprime_padicValNat_orderOf_eq_of_sprp.
+      The K2 specialization in k2_sprp_iff_two_adic_order incorporates the
+      Fermat condition using the K2 factor relation and yields the
+      equivalent residue-level form. Theorem 2 also gives an Euler-criterion
+      form of Proposition 4, which states the odd-base Fermat criterion.
+      The base-2 Fermat restriction in the remark on p. 919 supplies
+      the congruence condition used to derive the cap in Proposition 3.
   - title: "Efficiency and security of cryptosystems based on number theory"
     authors:
       - "Daniel Bleichenbacher"
     id: "https://doi.org/10.3929/ethz-a-001627804"
-    type: thesis
     location: "Ph.D. thesis, Diss. ETH No. 11404, ETH Zurich, 1996, Table 3.2"
     relationship: background
     note: "Earlier 41-digit (135-bit) composite passing the first 21 prime bases."
@@ -173,7 +184,10 @@ alignment:
       lean: "SpspPsi20Challenge.k2_fermat_and_sprp_criteria"
       module: "Challenge"
       status: proved
-      note: "Exact equivalences for every odd prime p with n = p(2p - 1) in K2 and gcd(b, n) = 1."
+      note: >-
+        K2 forms of Jaeschke (1993), Propositions 1 and 4, including the
+        equivalent residue-level criterion, for odd prime p with
+        n = p(2p - 1) in K2 and gcd(b, n) = 1.
     - source: "Proposition 3: Exact K2 strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16"
       lean: "SpspPsi20Challenge.k2_strongLiar_share_and_base2_cap"
       module: "Challenge"

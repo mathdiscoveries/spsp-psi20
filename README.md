@@ -19,6 +19,18 @@ This repository is a self-contained Lean 4 (`v4.35.0` + Mathlib `v4.35.0`) forma
 | `SpspPsi20Challenge.k_gen_legendre_of_ratio` | **Proposition 6:** General `K_{a/b}` 2-adic Legendre obstruction | Pure Lean 4 kernel |
 | `SpspPsi20Challenge.nth_prime_20` | Grounding witness `Nat.nth Nat.Prime 20 = 73` | Pure Lean 4 kernel |
 
+Theorem 2 formalizes the single-base, two-prime case of [Gerhard Jaeschke's
+order-signature criterion](https://doi.org/10.1090/S0025-5718-1993-1192971-8)
+(Proposition 1) in the `K2` setting. The library also gives an Euler-criterion
+form of Jaeschke's `K2` Fermat criterion (Proposition 4 and its base-2 remark).
+Proposition 3 uses the resulting base-2 congruence restriction to bound the
+strong-liar fraction.
+
+The companion manuscript by Tyler B. Hughes presents this project's two
+37-digit witnesses and their upper bound, the exact strong-liar fraction and
+base-2 cap, the wheel count, the Jacobsthal cell identities, and the
+general-ratio Legendre obstruction.
+
 ## Scope & Divergences
 
 - Two external exhaustive C-sieve searches in the companion manuscript — **Proposition 7** (1,024-shard GMP C sieve over `1.53 × 10^18` integers in `(10^36, 10^37]`) and **Proposition 8** (7-ratio C sweep over `1.49 × 10^10` candidates) — are outside Lean's kernel and are not included in `Challenge.lean`.
