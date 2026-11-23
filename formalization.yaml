@@ -37,7 +37,7 @@ sources:
     id: "https://mathdiscoveries.org/results/spsp-psi20"
     type: original-proof
     location: "Companion manuscript, verification archive, and prior-work search log at https://mathdiscoveries.org/results/spsp-psi20"
-    relationship: formalizes
+    relationship: other
     author_endorsement: participated
     note: >-
       Original discovery, companion manuscript, and Lean 4 formalization
@@ -57,7 +57,7 @@ sources:
     id: "https://doi.org/10.1137/0204018"
     type: paper
     location: "SIAM J. Comput. 4 (1975), no. 3, 214-220"
-    relationship: formalizes
+    relationship: background
     note: "Recursive primality certification via predecessor factorization and primitive-root witnesses used to certify p1, q1, p2, q2 in Lean."
   - title: "On strong pseudoprimes to several bases"
     authors:
@@ -65,7 +65,7 @@ sources:
     id: "https://doi.org/10.1090/S0025-5718-1993-1192971-8"
     type: paper
     location: "Math. Comp. 61 (1993), no. 204, 915-926"
-    relationship: formalizes
+    relationship: background
     note: "2-adic multiplicative-order signature criterion, K2 Fermat criterion, and base-2 restriction."
   - title: "Efficiency and security of cryptosystems based on number theory"
     authors:
