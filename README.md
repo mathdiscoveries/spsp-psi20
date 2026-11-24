@@ -1,5 +1,7 @@
 # Two 37-Digit 20-Base Strong Pseudoprimes (`ψ_20 ≤ n₁ < 2^121`), Order Criteria, and Exact Sieve Laws (Lean 4)
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.24490765.svg)](https://doi.org/10.5281/zenodo.24490765)
+
 **Author:** Tyler B. Hughes  
 **Disclosure:** Generated and mechanically checked by AI research agents built and directed by Tyler B. Hughes. No human mathematician has yet refereed the proof.  
 **Companion page & manuscript:** https://mathdiscoveries.org/results/spsp-psi20

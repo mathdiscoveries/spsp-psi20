@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+type: software
+message: "If you use or cite this Lean 4 formalization, please cite it using the Zenodo DOI below."
+title: "Two 37-Digit 20-Base Strong Pseudoprimes (psi_20 <= n1 < 2^121), Order Criteria, and Exact Sieve Laws"
+authors:
+  - family-names: "Hughes"
+    given-names: "Tyler B."
+    orcid: "https://orcid.org/0000-0001-6221-9014"
+doi: "10.5281/zenodo.24490765"
+version: "v1.0.0"
+date-released: "2026-11-24"
+license: "Apache-2.0"
+repository-code: "https://github.com/mathdiscoveries/spsp-psi20"
+url: "https://mathdiscoveries.org/results/spsp-psi20"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24490766"
+    description: "Version v1.0.0 snapshot archived on Zenodo"
