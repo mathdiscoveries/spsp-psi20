@@ -1,0 +1,57 @@
+{
+  "creators": [
+    {
+      "name": "Hughes, Tyler B.",
+      "orcid": "0000-0001-6221-9014"
+    }
+  ],
+  "title": "Two 37-Digit 20-Base Strong Pseudoprimes (psi_20 <= n1 < 2^121), Order Criteria, and Exact Sieve Laws",
+  "description": "Unconditional Lean 4 + Mathlib formalization (zero sorry, zero native_decide, standard axioms only) establishing two explicit 37-digit Zhang K2 strong pseudoprimes n1 = 2481162833436289154832260656117034821 (121 bits) and n2 = 5959902256870799858089729225626992341 (123 bits) to the first 20 prime bases (2 through 71, defined via Mathlib's Nat.nth Nat.Prime), giving the upper bound psi_20 <= n1 < 2^121 (OEIS A014233). All four prime factors are certified inside the Lean kernel via Pratt certificates backed by Mathlib's lucas_primality, and both witnesses are proved to fail the strong test at the 21st prime 73 while passing Fermat at 73. The K2 Fermat and 2-adic order criteria formalize specializations of Gerhard Jaeschke's 1993 results. The companion manuscript also presents the exact strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16, the exact sieve count A(b) and 10,135,125-class wheel mod 401,120,980,260, the Jacobsthal character sum -(2/b) with exact b mod 8 cell counts, and the K_{a/b} Legendre obstruction. Lean covers 6 of the manuscript's 8 main claims. The other 2 are external sieve computations. AI research agents built and directed by Tyler B. Hughes generated and checked the work. No human mathematician has yet refereed the proof. Companion manuscript and verification archive: https://mathdiscoveries.org/results/spsp-psi20.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "apache-2.0",
+  "language": "eng",
+  "keywords": [
+    "Lean 4",
+    "formalized mathematics",
+    "theorem proving",
+    "number theory",
+    "math.NT",
+    "MSC 2020: 11Y11",
+    "MSC 2020: 11A51",
+    "MSC 2020: 11N36"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://mathdiscoveries.org/results/spsp-psi20",
+      "relation": "isSupplementTo",
+      "resource_type": "other"
+    },
+    {
+      "identifier": "https://doi.org/10.1137/0204018",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "https://doi.org/10.1090/S0025-5718-1993-1192971-8",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "https://doi.org/10.3929/ethz-a-001627804",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "https://doi.org/10.1090/S0025-5718-07-01977-1",
+      "relation": "references",
+      "resource_type": "publication-article"
+    },
+    {
+      "identifier": "https://doi.org/10.1090/mcom/3134",
+      "relation": "references",
+      "resource_type": "publication-article"
+    }
+  ],
+  "notes": "Unrefereed. Generated and checked by AI research agents built and directed by Tyler B. Hughes."
+}
