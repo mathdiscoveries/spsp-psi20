@@ -40,21 +40,25 @@ sources:
       - "Tyler B. Hughes"
     id: "https://mathdiscoveries.org/results/spsp-psi20"
     type: paper
-    location: "Companion manuscript, verification archive, and prior-work search log at https://mathdiscoveries.org/results/spsp-psi20"
-    relationship: other
+    location: "https://mathdiscoveries.org/results/spsp-psi20"
+    relationship: formalizes
     author_endorsement: participated
     note: >-
-      Companion manuscript by Tyler B. Hughes for the results presented
-      in this project and produced by AI research agents he built and
-      directed. These are the 37-digit 20-base K2 strong pseudoprimes n1
-      (121-bit) and n2 (123-bit) establishing psi_20 <= n1 < 2^121 (Theorem 1),
-      the exact K2 strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16
-      (Proposition 3), the exact odd-prime sieve admissible count A(b) and
-      10,135,125-class first wheel mod 401,120,980,260 (Proposition 4), the
-      Jacobsthal character sum -(2/b) and exact b mod 8 cell counts
-      (Theorem 5), and the general K_{a/b} 2-adic Legendre obstruction
-      (Proposition 6). The base-2 cap and the general-ratio obstruction
-      use the earlier criteria credited to Jaeschke below.
+      The companion paper. It states and proves in writing every compared
+      statement of this package, and the Lean work formalizes them; the
+      formalization presents no result that the paper does not. These are the
+      37-digit 20-base K2 strong pseudoprimes n1 (121-bit) and n2 (123-bit)
+      establishing psi_20 <= n1 < 2^121 (Theorem 1), the K2 order criteria
+      (Theorem 2), the exact K2 strong-liar fraction (1 + 2*4^(-e))/6 and
+      base-2 cap <= 3/16 (Proposition 3), the exact odd-prime sieve admissible
+      count A(b) and its wheel (Proposition 4), the Jacobsthal character sum
+      -(2/b) and exact b mod 8 cell counts (Theorem 5), and the general
+      K_{a/b} 2-adic Legendre obstruction (Proposition 6). Theorem 2
+      specializes criteria of Jaeschke (1993), listed below, and the base-2
+      cap and the general-ratio obstruction use them. Propositions 7 and 8
+      (external C sieve searches) are outside this package. AI research agents
+      built and directed by Tyler B. Hughes generated and checked this work.
+      No human mathematician has yet refereed the proof.
   - title: "Every prime has a succinct certificate"
     authors:
       - "Vaughan R. Pratt"

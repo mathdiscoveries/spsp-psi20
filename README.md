@@ -35,7 +35,7 @@ general-ratio Legendre obstruction.
 
 ## Scope & Divergences
 
-- Two external exhaustive C-sieve searches in the companion manuscript — **Proposition 7** (1,024-shard GMP C sieve over `1.53 × 10^18` integers in `(10^36, 10^37]`) and **Proposition 8** (7-ratio C sweep over `1.49 × 10^10` candidates) — are outside Lean's kernel and are not included in `Challenge.lean`.
+- Two external exhaustive C-sieve searches in the companion manuscript, **Proposition 7** (1,024-shard GMP C sieve over `1.53 × 10^18` integers in `(10^36, 10^37]`) and **Proposition 8** (7-ratio C sweep over `1.49 × 10^10` candidates), are outside Lean's kernel and are not included in `Challenge.lean`.
 - Zhang's minimality conjecture (`ψ_t = ψ'_t` for `t ≥ 12`, including whether `ψ_20 = n₁`) remains open.
 
 ## Verification
