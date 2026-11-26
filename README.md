@@ -8,7 +8,7 @@
 
 ## Summary
 
-This repository is a self-contained Lean 4 (`v4.35.0` + Mathlib `v4.35.0`) formalization of **6 of 8 main claims** (100% of all theoretical theorems and the full headline witness/bound theorem; 100 verified declarations, `0 sorry`, `0 native_decide`, standard axioms `[propext, Quot.sound, Classical.choice]` only):
+This repository is a self-contained Lean 4 (`v4.35.0` + Mathlib `v4.35.0`) formalization of **6 of 8 main claims** of the companion paper (75%; Theorems 1, 2 and 5 and Propositions 3, 4 and 6, all compared in full by the Palomar check; Propositions 7 and 8 are external sieve computations, by certificate only; Conjecture 9 is open and not counted; abstract claims: 6 of 7 compared in Lean, 86%, and 1 by certificate only; 100 verified declarations, `0 sorry`, `0 native_decide`, standard axioms `[propext, Quot.sound, Classical.choice]` only):
 
 | Theorem in `Challenge.lean` | Manuscript claim | Status |
 |---|---|---|
