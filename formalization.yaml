@@ -82,7 +82,7 @@ sources:
   - title: "Efficiency and security of cryptosystems based on number theory"
     authors:
       - "Daniel Bleichenbacher"
-    id: "https://doi.org/10.3929/ethz-a-001627804"
+    id: "https://doi.org/10.3929/ethz-a-001637864"
     location: "Ph.D. thesis, Diss. ETH No. 11404, ETH Zurich, 1996, Table 3.2"
     relationship: background
     note: "Earlier 41-digit (135-bit) composite passing the first 21 prime bases."
