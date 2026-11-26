@@ -18,8 +18,12 @@ project:
     the exact strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16,
     the exact sieve count A(b) and 10,135,125-class wheel mod 401,120,980,260,
     the Jacobsthal character sum -(2/b) with exact b mod 8 cell counts, and
-    the K_{a/b} Legendre obstruction. Lean covers 6 of the manuscript's 8
-    main claims. The other 2 are external sieve computations.
+    the K_{a/b} Legendre obstruction. Coverage by this package's Palomar
+    comparison: of the companion paper's 8 main results, 6 are compared in
+    Lean in full (75%; Theorems 1, 2 and 5 and Propositions 3, 4 and 6);
+    Propositions 7 and 8, external sieve computations, are by certificate
+    only; Conjecture 9 is open and not counted. Abstract claims: 6 of 7
+    compared in Lean (86%), 1 by certificate only.
     AI research agents built and directed by Tyler B. Hughes generated and
     checked the work. No human mathematician has yet refereed the proof.
     Companion manuscript and verification archive:
@@ -87,6 +91,7 @@ sources:
     authors:
       - "Daniel Bleichenbacher"
     id: "https://doi.org/10.3929/ethz-a-001637864"
+    type: other
     location: "Ph.D. thesis, Diss. ETH No. 11404, ETH Zurich, 1996, Table 3.2"
     relationship: background
     note: "Earlier 41-digit (135-bit) composite passing the first 21 prime bases."
@@ -112,8 +117,7 @@ status:
   scope: >-
     Unconditionally proved inside Lean 4 + Mathlib with standard axioms only
     (100 verified declarations in SpspPsi20, zero sorry, zero native_decide):
-    6 of 8 main claims in the companion manuscript (100% of all theoretical
-    theorems and the full headline witness/bound theorem), namely Theorem 1
+    6 of 8 main claims in the companion manuscript (75%), namely Theorem 1
     (both 37-digit K2 witnesses n1 and n2, all 4 Pratt primality proofs, all 20
     prime-base strong tests via Nat.nth Nat.Prime, failure at base 73, Fermat
     pass at base 73, and psi_20 <= n1 < 2^121), Theorem 2 (K2 Fermat and 2-adic
@@ -153,11 +157,12 @@ fidelity:
   divergences: >-
     The companion manuscript (Draft 4) contains 8 main claims plus 1 open
     conjecture (Zhang minimality psi_t = psi'_t for t >= 12). This Lean 4
-    package proves 6 of those 8 claims (all theoretical theorems and the full
-    headline upper bound psi_20 <= n1 < 2^121). Propositions 7 and 8 of the
-    manuscript report negative exhaustive C-sieve searches over 1.53e18
-    integers in (10^36, 10^37] and 1.49e10 companion-ratio candidates; those
-    two external searches are not formalized in Lean and are omitted from
+    package proves 6 of those 8 claims (Theorems 1, 2 and 5 and Propositions
+    3, 4 and 6, including the headline upper bound psi_20 <= n1 < 2^121).
+    Proposition 7 of the manuscript reports an exhaustive external C-sieve
+    enumeration over 1.53e18 integers in (10^36, 10^37] that returned exactly
+    n1 and n2, and Proposition 8 a negative sweep over 1.49e10
+    companion-ratio candidates; those two external searches are not formalized in Lean and are omitted from
     Challenge.lean.
 
 review:
