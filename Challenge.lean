@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Tyler B. Hughes. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Tyler B. Hughes
+-/
 module
 
 public import Mathlib.Algebra.Ring.Parity
@@ -32,8 +37,10 @@ Self-contained Lean 4 + Mathlib statements over `ℕ`, `ℤ`, `ℚ`, and `ZMod`
    `p ≡ 3 (mod 4)`, and the sharp cap `≤ 3/16` (attained at `v_2(p - 1) = 2`) whenever `n`
    passes base `2`.
 4. **Proposition 4 (`sieve_admissible_and_wheel`):** Exact odd-prime sieve admissible count
-   `A(b) = (b - 1)/2` (`b ≡ 3 mod 4`) or `(b - 3)/2` (`b ≡ 1 mod 4`), and the exact
-   10-prime first-wheel count `10,135,125` classes modulo `401,120,980,260`.
+   `A(b) = (b - 1)/2` (`b ≡ 3 mod 4`) or `(b - 3)/2` (`b ≡ 1 mod 4`), the modulus product
+   `401,120,980,260`, and the product `10,135,125` of the ten local counts. The paper's
+   written Chinese remainder theorem argument identifies that product with the number of
+   simultaneous admissible classes.
 5. **Theorem 5 (`k2_jacobsthal_and_cells`):** Exact Jacobsthal character sum
    `∑_{x ∈ ZMod b} χ(x) χ(2x - 1) = -(2/b)` and exact `b mod 8` cell counts `4 N_{-+}` and
    `4 N_{++}`.
@@ -150,7 +157,9 @@ theorem k2_strongLiar_share_and_base2_cap {n p : ℕ} (hk2 : IsK2Number n p) (hp
   sorry
 
 /-- Proposition 4: exact odd-prime admissible residue count `A(b)` together with the
-exact first-wheel modulus `401,120,980,260` and admissible class count `10,135,125`. -/
+first-wheel modulus `401,120,980,260` and the product `10,135,125` of the ten local counts
+(the paper's written Chinese remainder theorem argument identifies that product with the
+number of simultaneous admissible classes). -/
 theorem sieve_admissible_and_wheel {b : ℕ} [Fact b.Prime] (hb_odd : Odd b) :
     (Finset.univ.filter
       (fun x : ZMod b => x ≠ 0 ∧ quadraticChar (ZMod b) (2 * x - 1) = 1)).card =

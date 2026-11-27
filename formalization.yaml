@@ -13,10 +13,13 @@ project:
     All four prime factors are certified inside the Lean kernel via Pratt
     certificates backed by Mathlib's lucas_primality, and both witnesses are
     proved to fail the strong test at the 21st prime 73 while passing Fermat at
-    73. The K2 Fermat and 2-adic order criteria formalize specializations
+    73. The K2 Fermat and 2-adic order criteria adapt specializations
     of Gerhard Jaeschke's 1993 results. The companion manuscript also presents
     the exact strong-liar fraction (1 + 2*4^(-e))/6 and base-2 cap <= 3/16,
-    the exact sieve count A(b) and 10,135,125-class wheel mod 401,120,980,260,
+    the exact sieve count A(b), the first-wheel modulus 401,120,980,260 and the
+    product 10,135,125 of the ten local counts (identified with the number of
+    simultaneous admissible classes by the paper's written Chinese remainder
+    theorem argument),
     the Jacobsthal character sum -(2/b) with exact b mod 8 cell counts, and
     the K_{a/b} Legendre obstruction. Coverage by this package's Palomar
     comparison: of the companion paper's 8 main results, 6 are compared in
@@ -77,7 +80,7 @@ sources:
     id: "https://doi.org/10.1090/S0025-5718-1993-1192971-8"
     type: paper
     location: "Math. Comp. 61 (1993), no. 204, 915-926, Propositions 1 and 4 and the remark on p. 919"
-    relationship: formalizes
+    relationship: adapts
     note: >-
       The single-base, two-prime forward direction of Proposition 1 is
       formalized in SpspPsi20.semiprime_padicValNat_orderOf_eq_of_sprp.
@@ -101,8 +104,62 @@ sources:
     id: "https://doi.org/10.1090/S0025-5718-07-01977-1"
     type: paper
     location: "Math. Comp. 76 (2007), no. 260, 2095-2107"
-    relationship: background
-    note: "Studies K2 strong pseudoprimes up to 10^36, strong-liar shares, and Conjecture 3 (minimality psi_t = psi'_t for t >= 12, which remains open)."
+    relationship: independently-proves
+    note: >-
+      Studies K2 strong pseudoprimes up to 10^36 and their strong-liar
+      shares, and states Conjecture 3 (psi_t = psi'_t for t >= 12). The
+      companion paper's reference ledger records a full-text reading. Its
+      equations (1.6)-(1.7), p. 2097, give the K2 quarter-share case that
+      k2_strongLiar_share_and_base2_cap proves again (share 1/4 and failure
+      at base 2 when p = 3 mod 4); that location is as the editorial audit
+      seat reported it, not re-read in this round [to check], because
+      ams.org refuses Claude agents by robots.txt. Zhang attributes the
+      classification to Section 5 of Zhang and Tang (2003), next entry.
+  - title: "Finding strong pseudoprimes to several bases. II"
+    authors:
+      - "Zhenxiang Zhang"
+      - "Min Tang"
+    id: "https://doi.org/10.1090/S0025-5718-03-01545-X"
+    type: paper
+    location: "Math. Comp. 72 (2003), no. 244, 2085-2097, Section 5"
+    relationship: independently-proves
+    note: >-
+      Not read [to check]: ams.org refuses Claude agents by robots.txt and
+      no other open copy was reachable. The credit, for the K2 quarter-share
+      case of k2_strongLiar_share_and_base2_cap (p = 3 mod 4), rests only on
+      the editorial audit seat's report that Zhang (2007) attributes that
+      classification to Section 5 of this paper.
+  - title: "Evaluation and comparison of two efficient probabilistic primality testing algorithms"
+    authors:
+      - "Louis Monier"
+    id: "https://doi.org/10.1016/0304-3975(80)90007-9"
+    type: paper
+    location: "Theoretical Computer Science 12 (1980), no. 1, 97-108, Proposition 1"
+    relationship: independently-proves
+    note: >-
+      Not read [to check]: the publisher's page refused the request (HTTP
+      403) and no open copy was found. That Proposition 1 is the exact count
+      of strong liars rests on the editorial audit seat's report. The count
+      itself was read in OEIS A071294 (which links this paper), in R. J.
+      Mathar's comment: "Let N = 2n+1 = Product_{i=1..s} p_i^r_i ...
+      N-1=2^k*q and p_i-1 = 2^(k_i)*q_i ... Then a(n) = (1+Sum_{j=0..k1-1}
+      2^(j*s)) * Product_{i=1..s} gcd(q,qi)." For n = p(2p - 1) with
+      p - 1 = 2^e u, u odd, it gives u^2 (1 + (4^e - 1)/3) strong liars out
+      of phi(n) = 2 * 4^e * u^2, which is the fraction (1 + 2*4^(-e))/6
+      that k2_strongLiar_share_and_base2_cap proves for K2 numbers.
+  - title: "OEIS A329759: Odd composite numbers k for which the number of witnesses for strong pseudoprimality of k equals phi(k)/4"
+    authors:
+      - "Amiram Eldar"
+    id: "https://oeis.org/A329759"
+    type: other
+    location: "OEIS A329759 (Eldar 2019; comments by J. Song 2026)"
+    relationship: independently-proves
+    note: >-
+      Read. It states: "The semiprime terms of this sequence are of the form
+      (2*m+1)*(4*m+1) where 2*m+1 and 4*m+1 are primes and m is odd", that
+      is, K2 numbers p(2p - 1) with p = 3 mod 4 have strong-liar share
+      exactly 1/4, the case that k2_strongLiar_share_and_base2_cap proves
+      again.
   - title: "Strong pseudoprimes to twelve prime bases"
     authors:
       - "Jonathan P. Sorenson"
@@ -122,14 +179,20 @@ status:
     prime-base strong tests via Nat.nth Nat.Prime, failure at base 73, Fermat
     pass at base 73, and psi_20 <= n1 < 2^121), Theorem 2 (K2 Fermat and 2-adic
     order/level criteria), Proposition 3 (strong-liar share (1 + 2*4^(-e))/6
-    and base-2 cap <= 3/16), Proposition 4 (exact sieve count A(b) and
-    10,135,125-class wheel mod 401,120,980,260), Theorem 5 (Jacobsthal sum
+    and base-2 cap <= 3/16), Proposition 4 (exact sieve count A(b), the
+    first-wheel modulus 401,120,980,260 and the product 10,135,125 of the ten
+    local counts; the paper's written Chinese remainder theorem argument
+    identifies that product with the number of simultaneous admissible
+    classes), Theorem 5 (Jacobsthal sum
     -(2/b) and exact b mod 8 cell counts), and Proposition 6 (general K_{a/b}
     2-adic Legendre obstruction). The remaining 2 claims in the manuscript
-    (Propositions 7 and 8: exhaustive external GMP C sieve over 1.53e18
-    integers in (10^36, 10^37] and a 7-ratio C sweep over 1.49e10 candidates)
-    are external computations not formalized in Lean, and Zhang's minimality
-    conjecture (psi_20 = n1) remains open.
+    (Proposition 7: an exhaustive external GMP C sieve over the
+    1,528,961,196,313,242,172 integers p with 10^36 < p(2p - 1) <= 10^37;
+    Proposition 8: an external seven-ratio sweep for p > 173 and
+    pq <= psi'_17, projected 1.493e10 candidates) are external computations
+    not formalized in Lean. At t = 20, Zhang conjectured psi_20 = psi'_20.
+    Combined with the reported external determination psi'_20 = n1, this
+    would give psi_20 = n1. Lean proves psi_20 <= n1.
   sorry_count: 0
   sorry_in_definitions: 0
   axioms: ["propext", "Quot.sound", "Classical.choice"]
@@ -160,9 +223,10 @@ fidelity:
     package proves 6 of those 8 claims (Theorems 1, 2 and 5 and Propositions
     3, 4 and 6, including the headline upper bound psi_20 <= n1 < 2^121).
     Proposition 7 of the manuscript reports an exhaustive external C-sieve
-    enumeration over 1.53e18 integers in (10^36, 10^37] that returned exactly
-    n1 and n2, and Proposition 8 a negative sweep over 1.49e10
-    companion-ratio candidates; those two external searches are not formalized in Lean and are omitted from
+    enumeration over the 1,528,961,196,313,242,172 integers p with
+    10^36 < p(2p - 1) <= 10^37 that returned exactly n1 and n2, and
+    Proposition 8 an external seven-ratio sweep for p > 173 and
+    pq <= psi'_17 (projected 1.493e10 candidates) that found none; those two external searches are not formalized in Lean and are omitted from
     Challenge.lean.
 
 review:
@@ -202,11 +266,16 @@ alignment:
       module: "Challenge"
       status: proved
       note: "Includes p = 3 mod 4 base-2 exclusion and exact 3/16 equality at e = 2."
-    - source: "Proposition 4: Exact odd-prime sieve admissible count A(b) and 10,135,125-class first wheel mod 401,120,980,260"
+    - source: "Proposition 4: Exact odd-prime sieve admissible count A(b), first-wheel modulus 401,120,980,260 and product 10,135,125 of the local counts"
       lean: "SpspPsi20Challenge.sieve_admissible_and_wheel"
       module: "Challenge"
       status: proved
-      note: "Proved over ZMod b for every odd prime b plus exact 10-prime wheel arithmetic."
+      note: >-
+        Lean proves the local count A(b) over ZMod b for every odd prime b,
+        the modulus product 401,120,980,260, and the product of the ten local
+        counts, 10,135,125. The paper's written Chinese remainder theorem
+        argument identifies that product with the number of simultaneous
+        admissible classes.
     - source: "Theorem 5: Exact Jacobsthal sum -(2/b) and exact b mod 8 wheel cell counts 4 N_{-+} and 4 N_{++}"
       lean: "SpspPsi20Challenge.k2_jacobsthal_and_cells"
       module: "Challenge"

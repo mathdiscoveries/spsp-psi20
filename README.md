@@ -16,12 +16,12 @@ This repository is a self-contained Lean 4 (`v4.35.0` + Mathlib `v4.35.0`) forma
 | `SpspPsi20Challenge.psi_20_le_n₁` | Standalone upper bound `ψ_20 ≤ 2481162833436289154832260656117034821` | Pure Lean 4 kernel |
 | `SpspPsi20Challenge.k2_fermat_and_sprp_criteria` | **Theorem 2:** `K2` Fermat Legendre criterion and Miller-Rabin 2-adic order/level criteria | Pure Lean 4 kernel |
 | `SpspPsi20Challenge.k2_strongLiar_share_and_base2_cap` | **Proposition 3:** Exact strong-liar fraction `(1 + 2·4^(-e))/6`, `p ≡ 3 (mod 4)` base-2 exclusion, and `≤ 3/16` cap | Pure Lean 4 kernel |
-| `SpspPsi20Challenge.sieve_admissible_and_wheel` | **Proposition 4:** Exact sieve admissible count `A(b)` and 10-prime wheel (`10,135,125` classes mod `401,120,980,260`) | Pure Lean 4 kernel |
+| `SpspPsi20Challenge.sieve_admissible_and_wheel` | **Proposition 4:** Exact sieve admissible count `A(b)`, the modulus product `401,120,980,260`, and the product of the ten local counts, `10,135,125` (the paper's written Chinese remainder theorem argument identifies that product with the number of simultaneous admissible classes) | Pure Lean 4 kernel |
 | `SpspPsi20Challenge.k2_jacobsthal_and_cells` | **Theorem 5:** Exact Jacobsthal sum `-(2/b)` and exact `b mod 8` cell identities `4 N_{-+}`, `4 N_{++}` | Pure Lean 4 kernel |
 | `SpspPsi20Challenge.k_gen_legendre_of_ratio` | **Proposition 6:** General `K_{a/b}` 2-adic Legendre obstruction | Pure Lean 4 kernel |
 | `SpspPsi20Challenge.nth_prime_20` | Grounding witness `Nat.nth Nat.Prime 20 = 73` | Pure Lean 4 kernel |
 
-Theorem 2 formalizes the single-base, two-prime case of [Gerhard Jaeschke's
+Theorem 2 adapts the single-base, two-prime case of [Gerhard Jaeschke's
 order-signature criterion](https://doi.org/10.1090/S0025-5718-1993-1192971-8)
 (Proposition 1) in the `K2` setting. The library also gives an Euler-criterion
 form of Jaeschke's `K2` Fermat criterion (Proposition 4 and its base-2 remark).
@@ -35,8 +35,9 @@ general-ratio Legendre obstruction.
 
 ## Scope & Divergences
 
-- Two external exhaustive C-sieve searches in the companion manuscript, **Proposition 7** (1,024-shard GMP C sieve over `1.53 × 10^18` integers in `(10^36, 10^37]`) and **Proposition 8** (7-ratio C sweep over `1.49 × 10^10` candidates), are outside Lean's kernel and are not included in `Challenge.lean`.
-- Zhang's minimality conjecture (`ψ_t = ψ'_t` for `t ≥ 12`, including whether `ψ_20 = n₁`) remains open.
+- Two external C-sieve searches in the companion manuscript, **Proposition 7** (1,024-shard GMP C sieve over the `1,528,961,196,313,242,172` integers `p` with `10^36 < p(2p − 1) ≤ 10^37`) and **Proposition 8** (external seven-ratio sweep for `p > 173` and `pq ≤ ψ'_17`, projected `1.493 × 10^10` candidates), are outside Lean's kernel and are not included in `Challenge.lean`.
+- At `t = 20`, Zhang conjectured `ψ_20 = ψ'_20`. Combined with the reported external determination `ψ'_20 = n₁`, this would give `ψ_20 = n₁`. Lean proves `ψ_20 ≤ n₁`.
+- The exact `K2` strong-liar share in Proposition 3 has earlier published forms: the general strong-liar count (Monier 1980; OEIS A071294) and the quarter-share case (Zhang 2007 and Zhang–Tang 2003; OEIS A329759). See `formalization.yaml` for what each credit rests on.
 
 ## Verification
 

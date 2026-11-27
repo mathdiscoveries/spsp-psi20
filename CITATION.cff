@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 type: software
-message: "If you use or cite this Lean 4 formalization, please cite it using the Zenodo DOI below."
+message: "If you use or cite this Lean 4 formalization, please cite it using the Zenodo DOI below. AI research agents built and directed by Tyler B. Hughes generated and checked the work. No human mathematician has yet refereed the proof."
 title: "Two 37-Digit 20-Base Strong Pseudoprimes (psi_20 <= n1 < 2^121), Order Criteria, and Exact Sieve Laws"
 authors:
   - family-names: "Hughes"

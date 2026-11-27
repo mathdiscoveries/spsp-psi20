@@ -1,3 +1,8 @@
+/-
+Copyright (c) 2026 Tyler B. Hughes. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Tyler B. Hughes
+-/
 module
 
 public import SpspPsi20.Defs
@@ -1575,8 +1580,10 @@ theorem k2_strongLiar_share_and_base2_cap {n p : ℕ} (hk2 : IsK2Number n p) (hp
      ⟨hm.1, hm.2.1, hm.2.2, k2_strongLiar_share_le_of_sprp_two hk2 h2⟩,
    fun he2 => k2_strongLiar_share_e2 hk2 he2⟩
 
-/-- Exact first-wheel modulus (`4 * ∏_{3 ≤ b ≤ 31} b = 401120980260`) and admissible
-class count (`∏_{3 ≤ b ≤ 31} A(b) = 10135125`). -/
+/-- Exact first-wheel modulus (`4 * ∏_{3 ≤ b ≤ 31} b = 401120980260`) and product of the
+ten local counts (`∏_{3 ≤ b ≤ 31} A(b) = 10135125`); the paper's written Chinese remainder
+theorem argument identifies that product with the number of simultaneous admissible
+classes. -/
 theorem first_wheel_exact :
     4 * ([3, 5, 7, 11, 13, 17, 19, 23, 29, 31] : List ℕ).prod = 401120980260 ∧
     (([3, 5, 7, 11, 13, 17, 19, 23, 29, 31] : List ℕ).map
@@ -1584,7 +1591,7 @@ theorem first_wheel_exact :
   decide
 
 /-- Combined Proposition 4: general odd-prime admissible residue count `A(b)` together
-with the exact first-wheel modulus and class count. -/
+with the exact first-wheel modulus and the product of the ten local counts. -/
 theorem sieve_admissible_and_wheel {b : ℕ} [Fact b.Prime] (hb_odd : Odd b) :
     (Finset.univ.filter
       (fun x : ZMod b => x ≠ 0 ∧ quadraticChar (ZMod b) (2 * x - 1) = 1)).card =
