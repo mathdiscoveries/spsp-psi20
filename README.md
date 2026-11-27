@@ -37,7 +37,7 @@ general-ratio Legendre obstruction.
 
 - Two external C-sieve searches in the companion manuscript, **Proposition 7** (1,024-shard GMP C sieve over the `1,528,961,196,313,242,172` integers `p` with `10^36 < p(2p − 1) ≤ 10^37`) and **Proposition 8** (external seven-ratio sweep for `p > 173` and `pq ≤ ψ'_17`, projected `1.493 × 10^10` candidates), are outside Lean's kernel and are not included in `Challenge.lean`.
 - At `t = 20`, Zhang conjectured `ψ_20 = ψ'_20`. Combined with the reported external determination `ψ'_20 = n₁`, this would give `ψ_20 = n₁`. Lean proves `ψ_20 ≤ n₁`.
-- The exact `K2` strong-liar share in Proposition 3 has earlier published forms: the general strong-liar count (Monier 1980; OEIS A071294) and the quarter-share case (Zhang 2007 and Zhang–Tang 2003; OEIS A329759). See `formalization.yaml` for what each credit rests on.
+- Several compared statements have earlier published forms, credited in `formalization.yaml` with what each credit rests on. Proposition 3: the general strong-liar count (Monier 1980), the exact `K2` share (Damgård, Landrock and Pomerance 1993, Theorem 4 and its proof) and the quarter-share and base-2 `3/16` cases (Zhang and Tang 2003). Theorem 5: the quadratic character sum (Lidl and Niederreiter, Theorem 5.48) and the consecutive-pair residue counts (Aladov 1896, as tabulated by Conrad). Proposition 6: Jaeschke 1993, Proposition 3, and Sorenson and Webster 2017, Propositions 2.5 and 2.6.
 
 ## Verification
 
