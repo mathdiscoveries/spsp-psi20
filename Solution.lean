@@ -40,9 +40,9 @@ def twoPowLevel (r b : ℕ) : ℕ :=
   ((Finset.range (padicValNat 2 (r - 1) + 1)).filter
     (fun j => b ^ ((r - 1) / 2 ^ j) ≡ 1 [MOD r])).sup id
 
-noncomputable def strongLiarFinset (n : ℕ) : Finset ℕ := by
-  classical
-  exact (Finset.range n).filter (fun b => Nat.Coprime b n ∧ IsStrongProbablePrime n b)
+open Classical in
+noncomputable def strongLiarFinset (n : ℕ) : Finset ℕ :=
+  (Finset.range n).filter (fun b => Nat.Coprime b n ∧ IsStrongProbablePrime n b)
 
 noncomputable def strongLiarCount (n : ℕ) : ℕ :=
   (strongLiarFinset n).card

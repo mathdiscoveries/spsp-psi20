@@ -78,10 +78,10 @@ def twoPowLevel (r b : ℕ) : ℕ :=
   ((Finset.range (padicValNat 2 (r - 1) + 1)).filter
     (fun j => b ^ ((r - 1) / 2 ^ j) ≡ 1 [MOD r])).sup id
 
+open Classical in
 /-- The finite set of strong-liar bases `b ∈ {0, …, n - 1}` coprime to `n`. -/
-noncomputable def strongLiarFinset (n : ℕ) : Finset ℕ := by
-  classical
-  exact (Finset.range n).filter (fun b => Nat.Coprime b n ∧ IsStrongProbablePrime n b)
+noncomputable def strongLiarFinset (n : ℕ) : Finset ℕ :=
+  (Finset.range n).filter (fun b => Nat.Coprime b n ∧ IsStrongProbablePrime n b)
 
 /-- Number of units `b ∈ (ℤ/nℤ)ˣ` (represented in `{0, …, n - 1}`) for which `n` passes
 the strong probable prime test. -/
