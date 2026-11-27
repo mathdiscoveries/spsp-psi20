@@ -64,10 +64,10 @@ sources:
       specializes criteria of Jaeschke (1993), listed below, and the base-2
       cap and the general-ratio obstruction use them. Earlier publications,
       listed below with what each credit rests on, state or prove the
-      Proposition 3 share and its quarter and 3/16 cases (Damgård, Landrock
-      and Pomerance 1993; Zhang and Tang 2003), the Theorem 5 sum and pair
-      counts (Lidl and Niederreiter; Aladov 1896, as tabulated by Conrad)
-      and the Proposition 6 cases (Jaeschke 1993; Sorenson and Webster
+      Theorem 2 Fermat criterion (Arnault 1995), the Proposition 3 share and
+      its quarter and 3/16 cases (Monier 1980; Damgård, Landrock and
+      Pomerance 1993; Zhang and Tang 2003; Zhang 2007), the Theorem 5 sum and
+      pair counts (Aladov 1896; Jacobsthal 1906) and the Proposition 6 cases (Jaeschke 1993; Sorenson and Webster
       2017). Propositions 7 and 8
       (external C sieve searches) are outside this package. AI research agents
       built and directed by Tyler B. Hughes generated and checked this work.
@@ -116,16 +116,22 @@ sources:
       - "Zhenxiang Zhang"
     id: "https://doi.org/10.1090/S0025-5718-07-01977-1"
     type: paper
-    location: "Math. Comp. 76 (2007), no. 260, 2095-2107, equations (1.6)-(1.7), p. 2097, and Proposition 1.1, p. 2098 [to check]"
+    location: "Math. Comp. 76 (2007), no. 260, 2095-2107, equations (1.6)-(1.7), p. 2097"
     relationship: independently-proves
     note: >-
-      Not read here [to check]: ams.org refuses Claude agents by robots.txt.
-      Two prior-work census seats report that equations (1.6)-(1.7), p. 2097,
-      restate the quarter-share classification of Zhang and Tang (2003),
-      read below, and that Proposition 1.1, p. 2098, lists K2 strong
-      pseudoprimes to the first k prime bases for k <= 19 below n1 and
-      states psi'_20 > 10^36. Unread: the whole paper, including those pages
-      and Conjecture 3 (psi_t = psi'_t for t >= 12).
+      Read pp. 2095-2098 (a copy obtained through university access). With
+      P_R(n) = SB(n)/phi(n) (1.2), p. 2095, p. 2097 states, citing Zhang and
+      Tang (2003, Section 5) for the proof: "(1.6) P_R(n) = 1/4 <=> either
+      n = pq is a K2-number with p = 3 mod 4 or n is a C3-number; and that
+      (1.7) if n is an spsp(2), then P_R(n) = 1/4 <=> n is a C3-number".
+      These are the quarter-share case of k2_strongLiar_share_and_base2_cap
+      and, with it, the exclusion of base 2 when p = 3 mod 4, which the
+      theorem proves again. Context, not credited as proving a compared
+      statement: Conjecture 3, p. 2097 (psi_t = psi'_t < psi''_t for
+      t >= 12, psi'_t the least K2 strong pseudoprime to the first t prime
+      bases), and Proposition 1.1, p. 2098, which gives psi'_13, ...,
+      psi'_19 and "psi'_20 > 10^36"; n1 is consistent with that bound and
+      does not appear in the paper.
   - title: "Finding strong pseudoprimes to several bases. II"
     authors:
       - "Zhenxiang Zhang"
@@ -150,22 +156,24 @@ sources:
       - "Louis Monier"
     id: "https://doi.org/10.1016/0304-3975(80)90007-9"
     type: paper
-    location: "Theoretical Computer Science 12 (1980), no. 1, 97-108, Proposition 1 and p. 102 [to check]"
+    location: "Theoretical Computer Science 12 (1980), no. 1, 97-108, Proposition 1, p. 101"
     relationship: independently-proves
     note: >-
-      Not read [to check]: the publisher's page refused the request (HTTP
-      403) and no open copy was reachable through the logged gate. Unread:
-      the whole paper, including Proposition 1 and p. 102. The credit rests
-      on two read sources that quote the result. Damgård, Landrock and
-      Pomerance (1993), p. 180, (2.2): "In [5], Monier showed that S(n) =
-      (1 + 1 + 2^omega(n) + ... + 2^((nu(n)-1)omega(n))) prod_(p|n) (p - 1, u)";
-      Zhang and Tang (2003), p. 2095: "Monier [8] proved that SB(n) = (1 +
-      (2^(k1 s) - 1)/(2^s - 1)) prod gcd(q, q_i)". For n = p(2p - 1) with
-      v_2(p - 1) = e this count gives the share (1 + 2*4^(-e))/6 that
-      k2_strongLiar_share_and_base2_cap proves. K. Conrad, "The Miller-Rabin
-      test" (expository note), p. 4, read, reports "Monier [10, p. 102]
-      showed that if p and 2p - 1 are prime and p = 3 mod 4 then the
-      proportion of Miller-Rabin witnesses for p(2p - 1) tends to 75%".
+      Read pp. 98 and 101-102 (a copy obtained through university access).
+      Notation, p. 98: nu_0 = v_2(n - 1), nu_i = v_2(p_i - 1), nu = min nu_i,
+      n - 1 = 2^nu_0 n' and p_i - 1 = 2^nu_i p_i'. With L_MR(n) = {1 <= a < n
+      | a^n' = 1 [n] or a^(n' 2^k) = -1 [n] for some 0 <= k < nu_0}, p. 101,
+      Proposition 1, p. 101: "The set L_MR(n) of liars to Miller-Rabin's
+      test has size |L_MR(n)| = [1 + (2^(r nu) - 1)/(2^r - 1)]
+      prod_(1<=i<=r) (n', p_i') for n composite." Every liar is a unit, so
+      the count is over (Z/n)^x. For n = p(2p - 1) with p - 1 = 2^e m, m
+      odd: r = 2, nu = e, n' = (2p + 1) m, (n', p_i') = m for both factors and
+      phi(n) = 2 4^e m^2, so |L_MR(n)|/phi(n) = (1 + 2 4^(-e))/6, the share
+      that k2_strongLiar_share_and_base2_cap proves again. P. 102, Case 3:
+      numbers with two prime factors and p_i' | n' "are approaching the
+      limit 1/4; such numbers are on the form n = (2p + 1)(4p + 1), where
+      (2p + 1) and (4p + 1) are prime and p is odd" (the case e = 1, with
+      Monier's error probability taken over n - 1 bases).
   - title: "Average case error estimates for the strong probable prime test"
     authors:
       - "Ivan Damgård"
@@ -232,11 +240,52 @@ sources:
       (p - 3)/4 for p = 3 mod 4. Under t = 2x - 1 the cells (chi(x),
       chi(2x - 1)) of k2_jacobsthal_and_cells become these consecutive-pair
       cells with the signs twisted by chi(2), and the Jacobsthal sum -(2/b)
-      is their signed total; the theorem proves them again. The original
-      sources are not read [to check]: N. S. Aladov, Mat. Sb. 18 (1896),
-      61-75 (in Russian), Conrad's reference [1]; and E. Jacobsthal's 1906
-      dissertation, Chap. III, which Conrad says found exact formulas for
-      patterns of length 2 and 3.
+      is their signed total; the theorem proves them again. Conrad's two
+      sources, Aladov (1896) and Jacobsthal (1906), were read and are
+      credited on their own entries.
+  - title: "On the distribution of quadratic residues and nonresidues of a prime P in the series 1, 2, ..., P - 1"
+    authors:
+      - "N. Aladow"
+    id: "http://mi.mathnet.ru/eng/msb/v18/i1/p61"
+    type: paper
+    location: "Mosk. Math. Samml. (Matematicheskii Sbornik) 18 (1896), 61-75, Theorem 1 (p. 61) and its proof (to p. 64)"
+    relationship: independently-proves
+    note: >-
+      N. S. Aladov; the Russian original, "O raspredelenii kvadratichnykh i
+      nekvadratichnykh vychetov prostogo chisla P v ryadu 1, 2, ..., P - 1",
+      is indexed as JFM 27.0146.01 under the transliteration Aladow. Read
+      pp. 61-64 from the page images (a copy obtained through university
+      access; pre-reform orthography). Theorem 1, p. 61, in translation: if
+      the prime p is of the form 4m + 1, the series 1, 2, ..., p - 1 contains
+      x = (p - 1)/4 non-residues followed by non-residues, x_1 = (p - 1)/4
+      non-residues followed by residues, y = (p - 1)/4 residues followed by
+      non-residues and y_1 = (p - 5)/4 residues followed by residues; if p is
+      of the form 4m + 3, then x = (p - 3)/4, x_1 = (p - 3)/4, y = (p + 1)/4,
+      y_1 = (p - 3)/4. The proof ends on p. 64 ("Formulas (10) and (12) prove
+      our theorem"). Under t = 2x - 1 these consecutive-pair counts, twisted
+      by chi(2), are the cell identities of k2_jacobsthal_and_cells, which
+      proves them again.
+  - title: "Anwendungen einer Formel aus der Theorie der quadratischen Reste"
+    authors:
+      - "Ernst Jacobsthal"
+    id: "https://gdz.sub.uni-goettingen.de/id/PPN317964577"
+    type: other
+    location: "Dissertation (referees G. Frobenius and H. A. Schwarz), printed by W. Fr. Kaestner, Goettingen, 1906; Chapter I, Section 2, p. 7; Chapter III, Section 1, p. 26"
+    relationship: independently-proves
+    note: >-
+      Read from the page images of the Goettingen digitization (GDZ,
+      PPN317964577; JFM 37.0226.01): printed pp. 5-11 and 24-29, with pp. 7
+      and 26-27 at full resolution. Chapter I,
+      Section 2, p. 7: for f(a, b, c) = sum_(m=1..p) ((a m^2 + b m + c)/p) and
+      D = b^2 - 4ac, "f(a, b, c) = (a/p){p - 1 - p (D/p)^2} + p (c/p)
+      {1 - (a/p)^2}{1 - (b/p)^2}", with three proofs from p. 7. At
+      (a, b, c) = (2, -1, 0), D = 1, this is sum_m (m/p)((2m - 1)/p) =
+      -(2/p), the Jacobsthal sum of k2_jacobsthal_and_cells. Chapter III,
+      Section 1, p. 26: "Die vier Anzahlfunktionen fuer die zweifachen
+      Sequenzen sind bekannt: 4RR = p - 4 - (-1/p), 4NN = 4NR = p - 2 +
+      (-1/p), 4RN = p - (-1/p)", proved again on pp. 26-27 from Chapter I;
+      under t = 2x - 1 these give the cell identities. The theorem proves
+      both again.
   - title: "Finite Fields"
     authors:
       - "Rudolf Lidl"
@@ -244,46 +293,57 @@ sources:
     id: "https://doi.org/10.1017/CBO9780511525926"
     type: book
     location: "Finite Fields, 2nd ed., Cambridge University Press, 1997, Theorem 5.48 [to check]"
-    relationship: independently-proves
+    relationship: background
     note: >-
-      Not read [to check]: no open copy. Unread: the whole book, including
-      Theorem 5.48 and its page. Two prior-work census seats report that
-      Theorem 5.48 gives sum_x eta(a2 x^2 + a1 x + a0) = -eta(a2) over F_q,
-      q odd, when a2 != 0 and a1^2 - 4 a0 a2 != 0, from later papers quoting
-      it. With (a2, a1, a0) = (2, -1, 0) this is the Jacobsthal sum
-      sum_x chi(x) chi(2x - 1) = -(2/b) of k2_jacobsthal_and_cells, which
-      proves it again.
+      Not read [to check]: no copy was available, and no read source quotes
+      Theorem 5.48. Two prior-work census seats report, from later papers
+      quoting it, that Theorem 5.48 gives sum_x eta(a2 x^2 + a1 x + a0) =
+      -eta(a2) over F_q, q odd, when a2 != 0 and a1^2 - 4 a0 a2 != 0; at
+      (a2, a1, a0) = (2, -1, 0) that would be the Jacobsthal sum of
+      k2_jacobsthal_and_cells. The prime-field case of that evaluation is
+      proved in Jacobsthal (1906), Chapter I, Section 2, p. 7, read and
+      credited above.
   - title: "Rabin-Miller primality test: composite numbers which pass it"
     authors:
       - "François Arnault"
     id: "https://doi.org/10.1090/S0025-5718-1995-1260124-2"
     type: paper
-    location: "Math. Comp. 64 (1995), no. 209, 355-361 [to check]"
-    relationship: background
+    location: "Math. Comp. 64 (1995), no. 209, 355-361, Section 3, Lemma 3.1, p. 358"
+    relationship: independently-proves
     note: >-
-      Not read [to check]: ams.org refuses Claude agents by robots.txt.
-      Unread: the whole paper. Two prior-work census seats report a 337-digit
-      K2 number p(2p - 1) that is a strong pseudoprime to all 46 prime bases
-      below 200 (pp. 360-361), a larger witness for psi_20 than n1, and a
-      lemma that a K2 number is a Fermat pseudoprime to base b exactly when
-      b is a square modulo 2p - 1 (Lemmas 3.1-3.2, p. 358).
+      Read Section 3 and pp. 360-361 (a copy obtained through university
+      access). Section 3, p. 357, takes n = p_1 p_2 with p_1 = 2q + 1 and
+      p_2 = 4q + 1 prime, so p_2 = 2 p_1 - 1 and n is a K2 number, and notes
+      that for b prime to p_1, n is a pseudoprime to base b if and only if
+      b^(n-1) = 1 modulo p_2. Lemma 3.1, p. 358: "With the above notations,
+      the number n is a pseudoprime to base b if and only if b is a square
+      modulo p_2." For b coprime to n this is the Fermat criterion of
+      k2_fermat_and_sprp_criteria, which proves it again. Lemma 3.2, p. 358,
+      gives a sufficient condition for n to be a strong pseudoprime to base
+      b ((b/p_1) = -1, and b a square but not a fourth power modulo p_2),
+      not the theorem's equivalences. Pp. 360-361 give a 337-digit number
+      found by this method that "is a strong pseudoprime to all forty-six
+      prime bases up to 200"; it bounds psi_20 too, far above n1.
 
 status:
   scope: >-
-    Unconditionally proved inside Lean 4 + Mathlib with standard axioms only
-    (100 verified declarations in SpspPsi20, zero sorry, zero native_decide):
-    6 of 8 main claims in the companion manuscript (75%), namely Theorem 1
+    Lean proves the two explicit witnesses and the upper bound
+    unconditionally. It also proves five general results under their stated
+    hypotheses. All are proved inside Lean 4 + Mathlib with standard axioms
+    only (100 verified declarations in SpspPsi20, zero sorry, zero
+    native_decide), covering 6 of 8 main claims in the companion manuscript (75%), namely Theorem 1
     (both 37-digit K2 witnesses n1 and n2, all 4 Pratt primality proofs, all 20
     prime-base strong tests via Nat.nth Nat.Prime, failure at base 73, Fermat
     pass at base 73, and psi_20 <= n1 < 2^121), Theorem 2 (K2 Fermat and 2-adic
     order/level criteria), Proposition 3 (strong-liar share (1 + 2*4^(-e))/6
-    and base-2 cap <= 3/16), Proposition 4 (exact sieve count A(b), the
+    and, for K2 numbers passing base 2, the cap <= 3/16), Proposition 4 (exact sieve count A(b), the
     first-wheel modulus 401,120,980,260 and the product 10,135,125 of the ten
     local counts; the paper's written Chinese remainder theorem argument
     identifies that product with the number of simultaneous admissible
     classes), Theorem 5 (Jacobsthal sum
     -(2/b) and exact b mod 8 cell counts), and Proposition 6 (general K_{a/b}
-    2-adic Legendre obstruction). The remaining 2 claims in the manuscript
+    2-adic Legendre obstruction, for coprime bases passing the strong test
+    on the stated prime product). The remaining 2 claims in the manuscript
     (Proposition 7: an exhaustive external GMP C sieve over the
     1,528,961,196,313,242,172 integers p with 10^36 < p(2p - 1) <= 10^37;
     Proposition 8: an external seven-ratio sweep for p > 173 and
