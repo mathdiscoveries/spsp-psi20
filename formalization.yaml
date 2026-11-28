@@ -67,7 +67,7 @@ sources:
       Theorem 2 Fermat criterion (Arnault 1995), the Proposition 3 share and
       its quarter and 3/16 cases (Monier 1980; Damgård, Landrock and
       Pomerance 1993; Zhang and Tang 2003; Zhang 2007), the Theorem 5 sum and
-      pair counts (Aladov 1896; Jacobsthal 1906) and the Proposition 6 cases (Jaeschke 1993; Sorenson and Webster
+      pair counts (Aladov 1896; Jacobsthal 1906; the sum also Weng 2021) and the Proposition 6 cases (Jaeschke 1993; Sorenson and Webster
       2017). Propositions 7 and 8
       (external C sieve searches) are outside this package. AI research agents
       built and directed by Tyler B. Hughes generated and checked this work.
@@ -286,23 +286,30 @@ sources:
       (-1/p), 4RN = p - (-1/p)", proved again on pp. 26-27 from Chapter I;
       under t = 2x - 1 these give the cell identities. The theorem proves
       both again.
-  - title: "Finite Fields"
+  - title: "Biases in Moments of Dirichlet Coefficients of Elliptic Curve Families"
     authors:
-      - "Rudolf Lidl"
-      - "Harald Niederreiter"
-    id: "https://doi.org/10.1017/CBO9780511525926"
-    type: book
-    location: "Finite Fields, 2nd ed., Cambridge University Press, 1997, Theorem 5.48 [to check]"
-    relationship: background
+      - "Yan Weng"
+    id: "https://arxiv.org/abs/2102.02702"
+    type: paper
+    location: "arXiv:2102.02702v3 [math.NT] (8 Feb 2021), Appendix A, Lemma A.3, p. 43, and its proof, p. 44, using Lemma A.2, pp. 42-43"
+    relationship: independently-proves
     note: >-
-      Not read [to check]: no copy was available, and no read source quotes
-      Theorem 5.48. Two prior-work census seats report, from later papers
-      quoting it, that Theorem 5.48 gives sum_x eta(a2 x^2 + a1 x + a0) =
-      -eta(a2) over F_q, q odd, when a2 != 0 and a1^2 - 4 a0 a2 != 0; at
-      (a2, a1, a0) = (2, -1, 0) that would be the Jacobsthal sum of
-      k2_jacobsthal_and_cells. The prime-field case of that evaluation is
-      proved in Jacobsthal (1906), Chapter I, Section 2, p. 7, read and
-      credited above.
+      Read Appendix A, printed pp. 42-44 (PDF pp. 43-45), of the arXiv v3
+      PDF. Lemma A.3, p. 43: "Assume a and b are not both zero mod p and
+      p > 2. Then sum_(t=0..p-1) ((a t^2 + b t + c)/p) = (p - 1)(a/p) if
+      p | b^2 - 4ac, and -(a/p) otherwise." The proof, p. 44, takes a != 0
+      mod p, completes the square to (a/p) sum_t ((t^2 - delta)/p) with
+      delta = 4^(-1)(b^2 - 4ac), gets -1 for a nonzero square delta from
+      Lemma A.2 (p. 42, proof p. 43: sum_x ((n1 + x)/p)((n2 + x)/p) = -1
+      when p does not divide n1 - n2), and gets -1 for a non-square delta
+      by summing over all delta. The appendix says these proofs are copied
+      from S. J. Miller's 2002 Princeton PhD thesis, which was not read
+      here. At (a, b, c) = (2, -1, 0), b^2 - 4ac = 1, and the character is
+      multiplicative, so sum_x chi(x) chi(2x - 1) = sum_x chi(2x^2 - x) =
+      -(2/p): the sum clause of k2_jacobsthal_and_cells, which proves it
+      again. The cell counts are not in this source. Lidl and Niederreiter,
+      Finite Fields (2nd ed., 1997), Theorem 5.48, is the textbook source
+      for this evaluation over F_q; it was not read and is not credited.
   - title: "Rabin-Miller primality test: composite numbers which pass it"
     authors:
       - "François Arnault"

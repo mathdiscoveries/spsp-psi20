@@ -73,9 +73,9 @@
       "resource_type": "publication-article"
     },
     {
-      "identifier": "https://doi.org/10.1017/CBO9780511525926",
+      "identifier": "arXiv:2102.02702",
       "relation": "references",
-      "resource_type": "publication-book"
+      "resource_type": "publication-preprint"
     }
   ],
   "notes": "Unrefereed. Generated and checked by AI research agents built and directed by Tyler B. Hughes."
